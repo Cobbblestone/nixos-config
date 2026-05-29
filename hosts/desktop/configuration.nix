@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "laptop";
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
   # Tailscale
