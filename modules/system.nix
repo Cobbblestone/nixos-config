@@ -24,5 +24,7 @@
     curl
     wget
     vim
+    fastfetch
+    btop
   ];
 }
