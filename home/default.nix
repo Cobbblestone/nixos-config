@@ -12,6 +12,7 @@
     rofi # ML4W uses Rofi instead of Wofi
     swaynotificationcenter # ML4W Notification Center
     hyprpaper # Wallpaper daemon
+    linux-wallpaperengine # Wallpaper Engine for Linux
     networkmanagerapplet
     font-awesome # For icons in waybar
   ];

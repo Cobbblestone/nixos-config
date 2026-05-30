@@ -18,7 +18,16 @@
   services.displayManager.sddm.wayland.enable = false;
   services.displayManager.defaultSession = "hyprland";
 
+
+  # Steam Configuration
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
   # System packages (basics)
+
   environment.systemPackages = with pkgs; [
     git
     curl
