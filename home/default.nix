@@ -210,10 +210,7 @@
         "$mod, mouse:273, resizewindow"
       ];
     };
-    extraConfig = ''
-      layerrule = blur, waybar
-      layerrule = ignorezero, waybar
-    '';
+
   };
 
   # Home Manager needs a bit of information about you and the paths it should
