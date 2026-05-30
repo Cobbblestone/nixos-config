@@ -14,6 +14,29 @@
     linux-wallpaperengine # Wallpaper Engine for Linux
     networkmanagerapplet
     font-awesome # For icons in waybar
+    (pkgs.writeShellScriptBin "gpu-wallpaper-watchdog" ''
+      #!/usr/bin/env bash
+      THRESHOLD=40
+      IS_PAUSED=0
+      while true; do
+        GPU_FILE=$(ls /sys/class/drm/card*/device/gpu_busy_percent 2>/dev/null | head -n 1)
+        if [ -n "$GPU_FILE" ]; then
+          USAGE=$(cat "$GPU_FILE")
+          if [ "$USAGE" -ge "$THRESHOLD" ]; then
+            if [ "$IS_PAUSED" -eq 0 ]; then
+              pkill -STOP linux-wallpaperengine || true
+              IS_PAUSED=1
+            fi
+          else
+            if [ "$IS_PAUSED" -eq 1 ]; then
+              pkill -CONT linux-wallpaperengine || true
+              IS_PAUSED=0
+            fi
+          fi
+        fi
+        sleep 2
+      done
+    '')
   ];
 
   # Kitty Terminal (ML4W style)
@@ -114,6 +137,7 @@
         "swaync"
         # Find your monitor name with `hyprctl monitors` and replace DP-1 if needed
         "linux-wallpaperengine --screen-root all 3244040553" 
+        "gpu-wallpaper-watchdog &"
       ];
       
       general = {
