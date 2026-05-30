@@ -80,7 +80,8 @@
         border-radius: 18px;
       }
       window#waybar {
-        background-color: rgba(30, 30, 46, 0.8);
+        background-color: rgba(30, 30, 46, 0.15); /* Highly transparent */
+        border: none;
         color: #cdd6f4;
       }
       #workspaces button {
@@ -123,6 +124,11 @@
         "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
       };
+
+      layerrule = [
+        "blur, waybar"
+        "ignorezero, waybar"
+      ];
 
       decoration = {
         rounding = 10;
