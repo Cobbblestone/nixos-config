@@ -136,7 +136,7 @@
         "nm-applet --indicator"
         "swaync"
         # Find your monitor name with `hyprctl monitors` and replace DP-1 if needed
-        "linux-wallpaperengine --screen-root all 3244040553" 
+        "linux-wallpaperengine --screen-root HDMI-A-2 3244040553" 
         "gpu-wallpaper-watchdog &"
       ];
       
