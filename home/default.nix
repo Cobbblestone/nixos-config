@@ -11,7 +11,6 @@
     xfce.thunar # File manager
     rofi # ML4W uses Rofi instead of Wofi
     swaynotificationcenter # ML4W Notification Center
-    hyprpaper # Wallpaper daemon
     linux-wallpaperengine # Wallpaper Engine for Linux
     networkmanagerapplet
     font-awesome # For icons in waybar
@@ -112,6 +111,8 @@
         "waybar"
         "nm-applet --indicator"
         "swaync"
+        # Find your monitor name with `hyprctl monitors` and replace DP-1 if needed
+        "linux-wallpaperengine --screen-root all 3244040553" 
       ];
       
       general = {
